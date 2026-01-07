@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VaultGen | Premium Password Tool</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        input[type='range'] {
+            accent-color: #818cf8;
+        }
+    </style>
+</head>
+<body class="bg-[#0f172a] text-slate-200 min-h-screen flex items-center justify-center p-4">
+
+    <div class="glass p-8 rounded-3xl w-full max-w-md shadow-2xl">
+        <h1 class="text-2xl font-light tracking-widest text-center mb-8 text-indigo-300 uppercase">VaultGen</h1>
+
+        <div class="bg-black/40 p-5 rounded-2xl mb-6 border border-white/5 flex flex-col items-center">
+            <span id="passwordDisplay" class="text-2xl font-mono text-indigo-400 break-all text-center tracking-wider">••••••••</span>
+            <div id="strengthBar" class="w-full h-1 mt-4 rounded-full bg-slate-800 transition-all duration-500"></div>
+        </div>
+
+        <div class="space-y-6">
+            <div>
+                <div class="flex justify-between text-sm mb-3 text-slate-400">
+                    <span>Complexity</span>
+                    <span id="lengthLabel" class="text-indigo-400 font-bold">16 chars</span>
+                </div>
+                <input type="range" id="lengthInput" min="8" max="32" value="16" class="w-full cursor-pointer">
+            </div>
+
+            <div class="grid grid-cols-1 gap-3">
+                <label class="flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-white/10 transition-colors cursor-pointer group">
+                    <span class="text-sm group-hover:text-white">Include Uppercase</span>
+                    <input type="checkbox" id="checkUpper" checked class="w-4 h-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                </label>
+                <label class="flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-white/10 transition-colors cursor-pointer group">
+                    <span class="text-sm group-hover:text-white">Include Lowercase</span>
+                    <input type="checkbox" id="checkLower" checked class="w-4 h-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                </label>
+                <label class="flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-white/10 transition-colors cursor-pointer group">
+                    <span class="text-sm group-hover:text-white">Include Numbers</span>
+                    <input type="checkbox" id="checkNumbers" checked class="w-4 h-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                </label>
+                <label class="flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-white/10 transition-colors cursor-pointer group">
+                    <span class="text-sm group-hover:text-white">Include Symbols</span>
+                    <input type="checkbox" id="checkSymbols" class="w-4 h-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                </label>
+            </div>
+
+            <button id="generateBtn" class="w-full py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-2xl font-semibold shadow-lg shadow-indigo-500/20 transition-all active:scale-95">
+                GENERATE SECURE KEY
+            </button>
+            
+            <button id="copyBtn" class="w-full text-xs text-slate-500 hover:text-indigo-400 tracking-widest uppercase transition-colors">
+                Copy to clipboard
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

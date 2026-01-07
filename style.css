@@ -1,0 +1,122 @@
+
+:root {
+    --primary-indigo: #6366f1;
+    --accent-emerald: #10b981;
+    --dark-bg: #0f172a;
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+
+body {
+    background: radial-gradient(circle at top left, #1e1b4b, #0f172a);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow: hidden; 
+}
+
+
+.glass {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    background: rgba(255, 255, 255, 0.1);
+    height: 6px;
+    border-radius: 3px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    margin-top: -7px; 
+    background-color: var(--primary-indigo);
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.6);
+    transition: transform 0.2s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+
+input[type="checkbox"] {
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    appearance: none;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--primary-indigo);
+    border-color: var(--primary-indigo);
+}
+
+input[type="checkbox"]:checked::after {
+    content: "✓";
+    position: absolute;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+#generateBtn {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background-size: 200% auto;
+    background-image: linear-gradient(to right, #6366f1 0%, #a855f7 51%, #6366f1 100%);
+}
+
+#generateBtn:hover {
+    background-position: right center;
+    box-shadow: 0 10px 20px -5px rgba(99, 102, 241, 0.4);
+}
+
+#generateBtn:active {
+    transform: scale(0.96);
+}
+
+
+@media (max-width: 640px) {
+    .glass {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    #passwordDisplay {
+        font-size: 1.25rem;
+    }
+}
+
+
+.text-red-400 {
+    animation: shake 0.4s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
